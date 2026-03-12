@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 // --- STYLES & TOKENS ---
+// Styles moved to index.css
 const globalStyles = `
-  @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700;800&display=swap');
 
   :root {
     /* 2-Color Print Foundation */
@@ -399,12 +400,11 @@ export default function App() {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: globalStyles }} />
       <div className="film-grain" aria-hidden="true" />
       <PersistentGrid />
 
       {/* SECTION 01: HERO */}
-      <section className="relative min-h-screen pt-32 pb-24 border-b-[4px] border-black flex flex-col justify-center z-10 overflow-hidden">
+      <section className="relative min-h-screen pt-48 pb-24 border-b-[4px] border-black flex flex-col justify-center z-10 overflow-hidden">
 
         {/* Massive Static Background Schematic */}
         <div className="absolute top-1/2 left-[60%] -translate-y-1/2 -translate-x-1/2 w-[800px] h-[800px] pointer-events-none opacity-[0.06] z-0" aria-hidden="true">
@@ -441,7 +441,7 @@ export default function App() {
 
             <FadeIn delay={0.3} className="flex flex-wrap items-center gap-4">
               <MagneticWrapper><a href="#framework" className="tech-btn">Read the Manual ↓</a></MagneticWrapper>
-              <MagneticWrapper><a href="#templates" className="tech-btn tech-btn-outline">Access Templates →</a></MagneticWrapper>
+              <MagneticWrapper><Link to="/templates" className="tech-btn tech-btn-outline">Access Templates →</Link></MagneticWrapper>
             </FadeIn>
           </div>
         </div>
